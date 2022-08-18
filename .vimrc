@@ -16,6 +16,7 @@ set number " set line numbers
 set textwidth=80
 set wrapmargin=80
 set cc=+1 " highlights column textwidth + 1
+set cursorline " Highlight cursor line
 " Always display a status line (it gets hidden sometimes otherwise)
 set laststatus=2
 
@@ -42,17 +43,16 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" [ Plugins ] --------------------------------------------------------------{{{1
 " Manage plugins with vim-plug
 call plug#begin()
-    Plug 'tpope/vim-vinegar'
-    Plug 'junegunn/fzf.vim'
-    Plug 'tpope/vim-fugitive'
-    let g:airline_powerline_fonts = 1
-    Plug 'vim-airline/vim-airline'
+    Plug 'tpope/vim-vinegar' " netrw in split
+    Plug 'junegunn/fzf.vim'  " fzf vim commands
+    Plug 'tpope/vim-fugitive' " git 
+    let g:airline_powerline_fonts = 1 " use powerline fonts (installed)
+    Plug 'vim-airline/vim-airline' " fancy status line
 
-    let g:plug_timeout = 300 " Increase vim-plug timeout for YouCompleteMe
-   " Plug 'ycm-core/YouCompleteMe', { 'do': './install.py'}
-   " Plug 'w0rp/ale'
+    let g:plug_timeout = 300 " Increase vim-plug timeout for coc
    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
